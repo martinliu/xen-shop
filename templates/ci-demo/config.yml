@@ -1,5 +1,5 @@
 name: Flask Web
 description: |
- (Experimental)  Yourun Cloud demo CD
-version: 1.0.0-YourunCloud
-category: demo 
+ 产品演示 
+version: 1.0.0
+category: xen-demo 
