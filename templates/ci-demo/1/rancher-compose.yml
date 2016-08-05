@@ -1,6 +1,6 @@
 .catalog:
    name: Flask-demo
-   version: 1.0.0
+   version: 1.5.0
    description: |
     Yourun Cloud ci-demo flask Web
    questions:
@@ -20,7 +20,7 @@
          description: "Build version of pyapp."
          label: "Build version of pyapp:"
          required: true
-         default: "5"
+         default: "6"
          type: "int"
        - variable: "Port_Number"
          description: "Port of pyapp."
