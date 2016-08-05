@@ -1,0 +1,38 @@
+nginx1-1:
+  ports:
+  - 5052:80/tcp
+  log_driver: ''
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  log_opt: {}
+  image: 172.31.12.94:5000/nginx
+  stdin_open: true
+LB-RoundRobin:
+  ports:
+  - 5053:80
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+  - nginx1-1:nginx1-1
+  - nginx1-2:nginx1-2
+  stdin_open: true
+nginx1-2:
+  ports:
+  - 5054:80/tcp
+  log_driver: ''
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  log_opt: {}
+  image: 172.31.12.94:5000/nginx:1.1
+  stdin_open: true
+LB-Cookie-insert:
+  ports:
+  - 5055:80
+  tty: true
+  image: rancher/load-balancer-service
+  links:
+  - nginx1-1:nginx1-1
+  - nginx1-2:nginx1-2
+  stdin_open: true

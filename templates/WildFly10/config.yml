@@ -1,0 +1,5 @@
+name: Jboss-WildFly
+description: |
+  Apache Jboss 10 沙箱测试工具
+version: 1.0
+category: Middleware

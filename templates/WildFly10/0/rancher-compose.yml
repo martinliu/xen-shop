@@ -1,0 +1,46 @@
+.catalog:
+  name: "Jboss10"
+  version: "1.0"
+  description: "Jboss WildFly with your application deployed"
+  minimum_rancher_version: v0.46.0
+  questions:
+    - variable: application_name
+      description: "Name of Your Application,name it as a variable, no space is allowed"
+      label: "Application Name"
+      type: "string"
+      required: true
+      default: "helpdesks"
+    - variable: artifact_url
+      description: "URL of your application war/jar artifact"
+      label: "Artifact URL"
+      type: "string"
+      required: true
+      default: "http://172.31.12.94:81/sample.war"
+    - variable: lbport
+      description: "Web Server port"
+      label: "Web Server port"
+      type: "int"
+      required: true
+      default: "5081"
+    - variable: scale
+      description: "Numbers of instances"
+      label: "scale"
+      type: "int"
+      required: true
+      default: "2"
+LB:
+  scale: 1
+  load_balancer_config:
+    lb_cookie_stickiness_policy:
+      cookie: WildFly
+      domain: ''
+      mode: insert
+    haproxy_config: {}
+  health_check:
+    port: 42
+    interval: 2000
+    unhealthy_threshold: 3
+    healthy_threshold: 2
+    response_timeout: 2000
+wfsrv:
+  scale: ${scale}

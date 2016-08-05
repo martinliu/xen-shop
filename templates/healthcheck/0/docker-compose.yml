@@ -1,0 +1,16 @@
+Nginx-HC-port80:
+  ports:
+   - 5050:80/tcp
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: 172.31.12.94:5000/nginx:error
+  stdin_open: true
+Nginx-HC-http-respond:
+  ports:
+   - 5051:80/tcp
+  labels:
+    io.rancher.container.pull_image: always
+  tty: true
+  image: 172.31.12.94:5000/nginx
+  stdin_open: true
