@@ -20,13 +20,13 @@
          description: "Build version of pyapp."
          label: "Build version of pyapp:"
          required: true
-         default: "6"
+         default: "5"
          type: "int"
        - variable: "Port_Number"
          description: "Port of pyapp."
          label: "Port of pyapp:"
          required: true
-         default: "5000"
+         default: "4005"
          type: "int"
 
 redis:
@@ -34,11 +34,11 @@ redis:
 
 pyapp:
   scale: ${scale_pyapp}
-    
+
 pyapplb:
   scale: 1
   health_check:
-    port: 42
+    port: 5000
     interval: 2000
     unhealthy_threshold: 3
     healthy_threshold: 2

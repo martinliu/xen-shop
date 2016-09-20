@@ -1,12 +1,12 @@
 redis:
   restart: always
   tty: true
-  image: 192.168.99.1:5000/redis
+  image: 192.168.2.93:5002/proj1/redis
   stdin_open: true
 pyapp:
   restart: always
   tty: true
-  image:  192.168.99.1:5000/python-redis-demo:b${Build_Number}
+  image:  192.168.2.93:5002/proj1/python-redis-demo:b${Build_Number}
   links:
   - 'redis:'
   stdin_open: true
